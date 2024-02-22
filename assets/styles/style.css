@@ -120,7 +120,7 @@ main article iframe {
 
 main article .content-testimoni {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 1rem;
 }
 
@@ -132,6 +132,7 @@ main .content-testimoni .card {
   padding: 0.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
 main aside {
