@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-*, *::after, *::before {
+* {
   box-sizing: border-box;
 }
 
@@ -8,42 +8,39 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: white;
   margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3 {
+h2, h3 {
   color: #004d4d;
 }
 
 header {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 9999;
-  padding-block: 1rem;
-  margin-inline: auto;
+  display: inline;
+}
+
+header .jumbotron {
+  color: white;
+  background-color: #004d4d;
+  text-align: center;
+  padding: 4rem;
+}
+
+header .jumbotron h1 {
+  font-size: 3rem;
+}
+
+header nav {
   position: sticky;
+  top: 0;
+  padding: 0.5rem;
   background-color: white;
 }
 
-header .logo a {
-  padding: 0.5rem 1.5rem;
-  font-size: 1.05rem;
-  color: #004d4d;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
-
-header .logo a:hover {
-  font-weight: bold;
-}
-
 header nav ul {
-  padding-left: 0;
   display: flex;
-  justify-content: center;
-  gap: 2rem
+  padding-inline: 2rem;
+  gap: 2rem;
 }
 
 header nav ul li {
@@ -51,11 +48,8 @@ header nav ul li {
 }
 
 header nav ul li a {
-  padding: 0.5rem 0.75rem;
-  font-size: 1.05rem;
-  color: #004d4d;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  color: teal;
 }
 
 header nav ul li a:hover {
@@ -63,15 +57,9 @@ header nav ul li a:hover {
 }
 
 main {
-  flex: 1;
-  width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding: 2rem 8rem;
+  padding: 2rem;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
+  gap: 2rem;
 }
 
 main article p {
@@ -79,23 +67,18 @@ main article p {
 }
 
 main article .content {
-  flex: 1;
+  flex: 5;
   display: flex;
-  align-items: center;
+  flex-flow: column nowrap;
 }
 
-main article .content .content-description {
-  flex: 1 1;
-}
-
-main article .content .content-description h1 {
+main article h1 {
   margin-block: 1rem;
-  font-size: 3.5rem;
 }
 
-main article .content .content-description p {
+main article p {
   line-height: 1.7rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 main article iframe {
@@ -112,10 +95,14 @@ main article iframe {
   object-position: bottom;
 }
 
-.profile {
+.image-profile {
   width: 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+}
+
+.profile header {
+  text-align: center;
 }
 
 main article .content-testimoni {
@@ -128,50 +115,25 @@ main .content-testimoni h3 {
   text-align: center;
 }
 
-main .content-testimoni .card {
-  padding: 0.5rem;
+main aside {
+  flex: 1;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.profile-card {
+  padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 
-main aside {
-  position: fixed;
-  inset-block: 0;
-  inset-inline-end: 0;
-}
-
-main aside .social-media {
-  display: flex;
-  height: 100%;
-}
-
-main aside .social-media ul {
-  padding: 1.5rem 1rem;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  margin: auto;
-  background-color: #004d4d;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem; 
-}
-
-main aside .social-media ul li {
-  list-style-type: none;
-}
-
-main aside .social-media ul li a {
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: white;
-  transition: all 0.1s ease-in-out;
-}
-
-main aside .social-media ul li a:hover {
-  color: #088080;
+.profile img {
+  width: 200px;
 }
 
 footer {
@@ -187,23 +149,21 @@ footer p {
   color: white;
 }
 
-@media screen and (max-width: 768px) {
-  header {
-    flex-direction: column;
+@media screen and (max-width: 1200px) {
+  main {
+    flex-flow: column nowrap;
   }
 
+  main aside {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
   header nav ul {
     flex-wrap: wrap;
     column-gap: 0.5rem;
-  }
-
-  main {
-    padding: 1rem 3rem;
-  }
-
-  main article {
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
   }
 
   main article .content-testimoni {
@@ -211,21 +171,7 @@ footer p {
     flex-direction: column;
   }
 
-  main aside .social-media ul {
-    padding: 0.5rem 0.5rem;
-    border-top-left-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-    margin: auto;
-    background-color: #004d4d;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-
-  main aside .social-media ul li a {
-    text-decoration: none;
-    font-size: 1.25rem;
+  main aside {
+    align-self: stretch;
   }
 }
